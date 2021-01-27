@@ -30,3 +30,14 @@ Player.prototype.hold = function() {
 }
 
 //User Interface Logic
+$("document").ready(function() {
+  $("form").submit(function(event) {
+    submit.preventDefault();
+    let player1Name = ($('input#player1-name').val());
+    let player2Name = ($('input#player2-name').val());
+
+    let player1 = new Player(player1Name = "Charlie");
+    let player2 = new Player(player2Name = "Brandy");
+
+  });
+});

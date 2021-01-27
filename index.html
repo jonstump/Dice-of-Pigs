@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pig Dice</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Pig Dice</h1>
+        <ul class="instructions">how to play
+          <li>Object of the game: to reach or exceed 100 points</li>
+          <li>Play begins with a roll of a die</li>
+          <li>Anytime a 1 is rolled, the current turn ends and no points are added to the current player's total score</li>
+          <li>On roll of anything besides 1, player elects to "hold" or roll again.</li>
+          <li>On "roll again" all the previous rolls are summed as a turn's score</li>
+          <li>"Hold" adds the current turn's sum to the player's total score</li>
+        </ul>
+      </div>
+      <div class="name-entry">
+        <h2>Please Enter Player Names:</h2>
+        <form class="form-check">
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+              <label class="form-check-inline" for="player1-name">
+              <input class="form-check-inline" type="text" id="player1-name" placeholder="Charlie">
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <label class="form-check-inline" for="player2-name">
+              <input class="form-check-inline" type="text" id="player2-name" placeholder="Brandy">
+            </div>
+          </div>
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary">Let's Play</button>
+          </div>
+        </form>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><span id="player1-name"></span></h3>
+          <ul class="list group list-group-flush">  
+            <li class="list-group-item">Total Score: <span id="player1-total-score"></span></li>
+            <li class="list-group-item">Turn Score: <span id="player1-turn-score"></span></li>
+            <li class="list-group-item">This turn's rolls:</li>
+            <ul class="turn-rolls">
+            </ul>
+            <li class="list-group-item">Turn: <span id="player1-turn"></span></li>
+          </ul>
+          <div class="buttons">
+            <button type="button" id="Charlie-roll" class="btn">Roll!</button>
+            <button type="button" id="Charlie-hold" class="btn">Hold!</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><span id="player2-name"></span></h3>
+          <ul class="list group list-group-flush">
+            <li class="list-group-item">Total Score: <span id="player2-total-score"></span></li>
+            <li class="list-group-item">Turn Score: <span id="player2-turn-score"></span></li>
+            <li class="list-group-item">This turn's rolls:</li>
+            <ul class="turn-rolls">
+            </ul>
+            <li class="list-group-item">Turn: <span id="player2-turn"></span></li>
+          </ul>
+          <div class="buttons">
+            <button type="button" id="Brandy-roll" class="btn">Roll!</button>
+            <button type="button" id="Brandy-hold" class="btn">Hold!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
