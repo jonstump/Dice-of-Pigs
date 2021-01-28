@@ -3,4 +3,8 @@
 }
 div.card {
   display: none;
+  align-content: center;
+}
+ul.list-group-flush {
+  padding-inline-start: 0px;
 }
