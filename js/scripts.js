@@ -47,8 +47,8 @@ $("document").ready(function() {
     player2.playerName = player2Name;
     //const outputArray = [player1, player2];
     $(".card").slideDown();
-    $("#player2-name").text(player1.playerName);
-    $("#player1-name").text(player1.playerName);
+    $("h3#player1-name").text(player1Name);
+    $("h3#player2-name").text(player2Name);
     $("#player1-total-score").text(0);
     $("#player2-total-score").text(0);
     $("#player1-turn-score").text(0);
