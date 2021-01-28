@@ -27,6 +27,7 @@ Player.prototype.winCheck = function() {
 Player.prototype.hold = function() {
   this.scoreTotal += this.turnScore;
   this.turnsTaken++;
+  this.turnScore = 0;
 }
 
 //User Interface Logic
@@ -59,7 +60,7 @@ $("document").ready(function() {
     //return outputArray;
   });
 
-  $("button#Charlie-roll").click(function() {
+  $("button#Charlie-roll").unbind('click').click(function() {
     let dieRoll = player1.rollDie();
     if (dieRoll === 1) {
       $("span#player1-turn").text(player1.turnsTaken);
@@ -68,9 +69,34 @@ $("document").ready(function() {
     } else {
       $("#player1-card .turn-rolls").append("<li>" + dieRoll + "</li>");
     }
-
   });
 
-  $("button#Brandy-roll")
+  $("button#Charlie-hold").unbind('click').click(function() {
+    player1.hold();
+    $("span#player1-turn").text(player1.turnsTaken);
+    $("#player1-card").addClass("translucent");
+    $("#player2-card").removeClass("translucent");
+    $("span#player1-total-score").text(player1.scoreTotal);
+  });
+
+  $("button#Brandy-roll").unbind('click').click(function() {
+    let dieRoll = player2.rollDie();
+    if (dieRoll === 1) {
+      $("span#player2-turn").text(player2.turnsTaken);
+      $("#player2-card").addClass("translucent");
+      $("#player1-card").removeClass("translucent");
+    } else {
+      $("#player2-card .turn-rolls").append("<li>" + dieRoll + "</li>");
+    }
+  });
+
+  $("button#Brandy-hold").unbind('click').click(function() {
+    player2.hold();
+    $("span#player2-turn").text(player2.turnsTaken);
+    $("#player2-card").addClass("translucent");
+    $("#player1-card").removeClass("translucent");
+    $("span#player2-total-score").text(player2.scoreTotal);
+  });
+
   
 });
