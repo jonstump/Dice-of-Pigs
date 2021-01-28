@@ -66,8 +66,9 @@ $("document").ready(function() {
       $("span#player1-turn").text(player1.turnsTaken);
       $("#player1-card").addClass("translucent");
       $("#player2-card").removeClass("translucent");
+      $("#player1-card .turn-rolls").empty();
     } else {
-      $("#player1-card .turn-rolls").append("<li>" + dieRoll + "</li>");
+      $("#player1-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
     }
   });
 
@@ -77,6 +78,7 @@ $("document").ready(function() {
     $("#player1-card").addClass("translucent");
     $("#player2-card").removeClass("translucent");
     $("span#player1-total-score").text(player1.scoreTotal);
+    $("#player1-card .turn-rolls").empty();
   });
 
   $("button#Brandy-roll").unbind('click').click(function() {
@@ -85,8 +87,9 @@ $("document").ready(function() {
       $("span#player2-turn").text(player2.turnsTaken);
       $("#player2-card").addClass("translucent");
       $("#player1-card").removeClass("translucent");
+      $("#player2-card .turn-rolls").empty();
     } else {
-      $("#player2-card .turn-rolls").append("<li>" + dieRoll + "</li>");
+      $("#player2-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
     }
   });
 
@@ -96,6 +99,7 @@ $("document").ready(function() {
     $("#player2-card").addClass("translucent");
     $("#player1-card").removeClass("translucent");
     $("span#player2-total-score").text(player2.scoreTotal);
+    $("#player2-card .turn-rolls").empty();
   });
 
   
