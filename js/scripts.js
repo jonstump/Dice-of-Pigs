@@ -1,5 +1,5 @@
 //Business Logic
-function Player(playerName  = "Charlie") {
+function Player(playerName) {
   this.playerName = playerName;
   this.turnsTaken = 0;
   this.turnScore = 0;
@@ -31,7 +31,10 @@ Player.prototype.hold = function() {
 
 //User Interface Logic
 $("document").ready(function() {
-  let playersArray = $("form").submit(function(event) {
+  let player1 = new Player();
+  let player2 = new Player();
+  
+  $("form").submit(function(event) {
     event.preventDefault();
     let player1Name = ($('input#player1-name').val());
     let player2Name = ($('input#player2-name').val());
@@ -39,28 +42,31 @@ $("document").ready(function() {
       player1Name = "Charlie";
       player2Name = "Brandy";
     }
-    let player1 = new Player(player1Name);
-    let player2 = new Player(player2Name);
-    const outputArray = [player1, player2];
+    player1.playerName = player1Name;
+    player2.playerName = player2Name;
+    //const outputArray = [player1, player2];
     $(".card").slideDown();
-    $("#player1-name").text(player1.playerName);
     $("#player2-name").text(player1.playerName);
+    $("#player1-name").text(player1.playerName);
     $("#player1-total-score").text(0);
     $("#player2-total-score").text(0);
     $("#player1-turn-score").text(0);
     $("#player2-turn-score").text(0);
     $("#player1-turn").text(0);
-    $("#player2-turn").text(0);
+    //$("#player2-turn").text(0);
     $("#player2-card").addClass("translucent");
     $(".name-entry").slideUp();
-    return outputArray;
+    //return outputArray;
   });
+
   $("button#Charlie-roll").click(function() {
-    let dieRoll = playersArray[0][rollDie()];
+    let dieRoll = player1.rollDie();
     if (dieRoll === 1) {
-      $("span#player1-turn").text(playersArray[0].turnsTaken);
+      $("span#player1-turn").text(player1.turnsTaken);
       $("#player1-card").addClass("translucent");
       $("#player2-card").removeClass("translucent");
+    } else {
+      $("#player1-card .turn-rolls").append("<li>" + dieRoll + "</li>");
     }
 
   });
