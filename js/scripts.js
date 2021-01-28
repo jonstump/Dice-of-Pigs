@@ -54,7 +54,7 @@ $("document").ready(function() {
     $("#player1-turn-score").text(0);
     $("#player2-turn-score").text(0);
     $("#player1-turn").text(0);
-    //$("#player2-turn").text(0);
+    $("#player2-turn").text(0);
     $("#player2-card").addClass("translucent");
     $(".name-entry").slideUp();
     //return outputArray;
@@ -63,10 +63,16 @@ $("document").ready(function() {
   $("button#Charlie-roll").unbind('click').click(function() {
     let dieRoll = player1.rollDie();
     if (dieRoll === 1) {
+      $("#Charlie-roll").attr("disabled", true);
+      $("#Charlie-hold").attr("disabled", true);
+      $("#Brandy-roll").attr("disabled", true);
+      $("#Brandy-hold").attr("disabled", true);
       $("span#player1-turn").text(player1.turnsTaken);
       $("#player1-card").addClass("translucent");
       $("#player2-card").removeClass("translucent");
       $("#player1-card .turn-rolls").empty();
+      $("#player1-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
+      $("#player2-card .turn-rolls").empty();
     } else {
       $("#player1-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
     }
@@ -74,20 +80,31 @@ $("document").ready(function() {
 
   $("button#Charlie-hold").unbind('click').click(function() {
     player1.hold();
+    $("#Charlie-roll").attr("disabled", true);
+    $("#Charlie-hold").attr("disabled", true);
+    $("#Brandy-roll").attr("disabled", false);
+    $("#Brandy-hold").attr("disabled", false);
     $("span#player1-turn").text(player1.turnsTaken);
     $("#player1-card").addClass("translucent");
     $("#player2-card").removeClass("translucent");
     $("span#player1-total-score").text(player1.scoreTotal);
     $("#player1-card .turn-rolls").empty();
+    $("#player2-card .turn-rolls").empty();
   });
-
+// $(“#buttonSubmit”).attr(“disabled”, true);
   $("button#Brandy-roll").unbind('click').click(function() {
     let dieRoll = player2.rollDie();
     if (dieRoll === 1) {
+      $("#Brandy-roll").attr("disabled", true);
+      $("#Brandy-hold").attr("disabled", true);
+      $("#Charlie-roll").attr("disabled", false);
+      $("#Charlie-hold").attr("disabled", false);
       $("span#player2-turn").text(player2.turnsTaken);
       $("#player2-card").addClass("translucent");
       $("#player1-card").removeClass("translucent");
       $("#player2-card .turn-rolls").empty();
+      $("#player2-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
+      $("#player1-card .turn-rolls").empty();
     } else {
       $("#player2-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
     }
@@ -95,12 +112,15 @@ $("document").ready(function() {
 
   $("button#Brandy-hold").unbind('click').click(function() {
     player2.hold();
+    $("#Brandy-roll").attr("disabled", true);
+    $("#Brandy-hold").attr("disabled", true);
+    $("#Charlie-roll").attr("disabled", false);
+    $("#Charlie-hold").attr("disabled", false);
     $("span#player2-turn").text(player2.turnsTaken);
     $("#player2-card").addClass("translucent");
     $("#player1-card").removeClass("translucent");
     $("span#player2-total-score").text(player2.scoreTotal);
     $("#player2-card .turn-rolls").empty();
+    $("#player1-card .turn-rolls").empty();
   });
-
-  
 });
