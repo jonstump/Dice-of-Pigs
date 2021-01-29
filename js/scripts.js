@@ -67,6 +67,7 @@ $("document").ready(function() {
       $("#Charlie-hold").attr("disabled", true);
       $("#Brandy-roll").attr("disabled", false);
       $("#Brandy-hold").attr("disabled", false);
+      $("#player2-turn-score").text(player2.turnScore);
       $("span#player1-turn").text(player1.turnsTaken);
       $("#player1-card").addClass("translucent");
       $("#player2-card").removeClass("translucent");
@@ -75,6 +76,7 @@ $("document").ready(function() {
       $("#player2-card .turn-rolls").empty();
     } else {
       $("#player1-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
+      $("#player1-turn-score").text(player1.turnScore);
     }
   });
 
@@ -84,6 +86,7 @@ $("document").ready(function() {
     $("#Charlie-hold").attr("disabled", true);
     $("#Brandy-roll").attr("disabled", false);
     $("#Brandy-hold").attr("disabled", false);
+    $("#player2-turn-score").text(player2.turnScore);
     $("span#player1-turn").text(player1.turnsTaken);
     $("#player1-card").addClass("translucent");
     $("#player2-card").removeClass("translucent");
@@ -99,6 +102,7 @@ $("document").ready(function() {
       $("#Brandy-hold").attr("disabled", true);
       $("#Charlie-roll").attr("disabled", false);
       $("#Charlie-hold").attr("disabled", false);
+      $("#player1-turn-score").text(player1.turnScore);
       $("span#player2-turn").text(player2.turnsTaken);
       $("#player2-card").addClass("translucent");
       $("#player1-card").removeClass("translucent");
@@ -107,6 +111,7 @@ $("document").ready(function() {
       $("#player1-card .turn-rolls").empty();
     } else {
       $("#player2-card .turn-rolls").append("<li class='list-inline-item'>" + dieRoll + "</li>");
+      $("#player2-turn-score").text(player2.turnScore);
     }
   });
 
@@ -116,6 +121,7 @@ $("document").ready(function() {
     $("#Brandy-hold").attr("disabled", true);
     $("#Charlie-roll").attr("disabled", false);
     $("#Charlie-hold").attr("disabled", false);
+    $("#player1-turn-score").text(player1.turnScore);
     $("span#player2-turn").text(player2.turnsTaken);
     $("#player2-card").addClass("translucent");
     $("#player1-card").removeClass("translucent");
