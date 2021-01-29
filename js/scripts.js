@@ -65,8 +65,8 @@ $("document").ready(function() {
     if (dieRoll === 1) {
       $("#Charlie-roll").attr("disabled", true);
       $("#Charlie-hold").attr("disabled", true);
-      $("#Brandy-roll").attr("disabled", true);
-      $("#Brandy-hold").attr("disabled", true);
+      $("#Brandy-roll").attr("disabled", false);
+      $("#Brandy-hold").attr("disabled", false);
       $("span#player1-turn").text(player1.turnsTaken);
       $("#player1-card").addClass("translucent");
       $("#player2-card").removeClass("translucent");
