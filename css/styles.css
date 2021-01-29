@@ -1,9 +1,35 @@
+jumbotron {
+  opacity: 100%
+}
+body {
+  background-color: #ffeef2;
+  color: #595758 ;
+}
+h1 {
+  font-family: 'Modak', cursive;
+  font-size: 600%;
+}
+h3 {
+  font-family: 'Modak', cursive;
+}
+ul.instructions {
+  font-family: 'Teko', sans-serif;
+}
+ul.instructions.h2 {
+  font-family: 'Wire One', sans-serif;
+  font-size: 80%;
+}
 .translucent {
   opacity: 40%;
 }
 div.card {
   display: none;
   align-content: center;
+  border-radius: 1rem;
+  background-color: #ffc8fb;
+}
+.list-group-item {
+  background-color: #ffc8fb;
 }
 ul.list-group-flush {
   padding-inline-start: 0px;
